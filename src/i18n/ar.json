@@ -1,5 +1,10 @@
 {
-  "main": {
-    "test": "اختبار"
+  "common": {
+    "headerTitle": "My Todos",
+    "todoPlaceH": "New todo ...",
+    "addTodo": "Add todo",
+    "delete": "Delete",
+    "save": "Save",
+    "done": "Done"
   }
 }
