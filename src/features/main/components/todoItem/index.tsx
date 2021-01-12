@@ -33,10 +33,10 @@ const TodoItem: FC<TodoItemProps> = ({
   const filterActions = () => (
     buttonItems
       .filter((item) => item.id === '1' || title !== savedTodo)
-      .map((filteredPerson) => {
-        const { id, name, color, onAction } = filteredPerson;
+      .map((filteredData) => {
+        const { id, name, color, onAction } = filteredData;
         return (
-          <>
+          <View key={id}>
             <ActionButton
               key={id}
               onPress={onAction}
@@ -44,7 +44,7 @@ const TodoItem: FC<TodoItemProps> = ({
               color={color}
             />
             {title === savedTodo && id === '1' && <Text>{t(`${translationBaseKey}.done`)}</Text>}
-          </>
+          </View>
         );
       })
   )

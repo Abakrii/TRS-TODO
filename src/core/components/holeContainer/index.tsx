@@ -6,7 +6,7 @@ import { ReactChildern } from '../../types';
 const HoleContainer: FC<ReactChildern> = ({ children = <></> }): JSX.Element => {
     return (
         <>
-            <SafeAreaView>
+            <SafeAreaView >
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
                     {children}
                 </ScrollView>
