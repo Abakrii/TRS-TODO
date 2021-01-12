@@ -16,9 +16,6 @@ const styles: StylesInterfaces = StyleSheet.create({
         borderRadius: 10,
     },
     titleStyle: { width: '70%' },
-    filterActionView: {
-        alignItems: 'center', flexDirection: 'row'
-    }
 });
 
 export default styles;

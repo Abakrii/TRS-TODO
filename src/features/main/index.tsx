@@ -21,7 +21,7 @@ const Main: FC = (): JSX.Element => {
         ]
     );
 
-    const [savedTodo, setSaveTodo] = useState('');
+    const [savedTodoKey, setSaveTodo] = useState('');
 
     const addTodoHandler = (title: string) => {
         globalAddToDo({ val: title, setState: setTodos })
@@ -30,8 +30,8 @@ const Main: FC = (): JSX.Element => {
         globalDeleteHandler({ val: key, setState: setTodos })
     };
 
-    const saveHandler = (title: string,) => {
-        setSaveTodo(title);
+    const saveHandler = (key) => {
+        setSaveTodo(key);
     };
 
 
@@ -51,7 +51,7 @@ const Main: FC = (): JSX.Element => {
                                 item={item}
                                 onSave={saveHandler}
                                 onDelete={deleteHandler}
-                                savedTodo={savedTodo}
+                                savedTodoKey={savedTodoKey}
                             />
                         )} />
                 </ListContainer>

@@ -10,7 +10,6 @@ export interface StylesInterfaces {
     input?: TextStyle;
     actionButtonView?: ViewStyle;
     titleStyle?: TextStyle
-    filterActionView?: ViewStyle
 }
 
 export type HeaderProps = {
@@ -25,7 +24,7 @@ export type TodoItemProps = {
     item?: { title: string; key: string };
     onDelete: Function;
     onSave: Function;
-    savedTodo: string;
+    savedTodoKey: string;
 };
 
 export type GlobalFun = {

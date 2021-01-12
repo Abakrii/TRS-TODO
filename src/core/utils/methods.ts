@@ -11,7 +11,7 @@ export const globalChangeHandler = ({ val, setState }: GlobalFun) => {
 
 export const globalAddToDo = ({ val, setState }: GlobalFun) => {
     setState((prevTodos: any) => {
-        return [{ title: val, key: Math.random().toString() }, ...prevTodos];
+        return [{ key: Math.random().toString(), title: val, }, ...prevTodos];
     });
 };
 

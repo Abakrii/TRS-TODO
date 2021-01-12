@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { View, TextInput, Text } from 'react-native';
 import styles from './styles';
 import { TodoItemProps } from '../../../../core/types';
 import ActionButton from '../../../../core/components/actionButton';
 import { useTranslation } from 'react-i18next';
 import { translationBaseKey } from '../../../../core/utils/constants';
-const { todoItem, titleStyle, filterActionView } = styles;
+const { todoItem, titleStyle, } = styles;
 const TodoItem: FC<TodoItemProps> = ({
   item,
   onDelete,
   onSave,
-  savedTodo,
+  savedTodoKey,
 }): JSX.Element => {
   const { t } = useTranslation();
   const { title = '', key = '' } = item || {};
@@ -25,26 +25,26 @@ const TodoItem: FC<TodoItemProps> = ({
       id: '2',
       name: t(`${translationBaseKey}.save`),
       color: 'blue',
-      onAction: () => onSave(title),
+      onAction: () => onSave(key),
     },
   ];
 
 
   const filterActions = () => (
     buttonItems
-      .filter((item) => item.id === '1' || title !== savedTodo)
-      .map((filteredData) => {
-        const { id, name, color, onAction } = filteredData;
+      .filter((item) => item.id === '1' || key !== savedTodoKey)
+      .map((filteredActions) => {
+        const { id, name, color, onAction } = filteredActions;
         return (
-          <View style={filterActionView} key={id}>
+          <Fragment key={id} >
             <ActionButton
               key={id}
               onPress={onAction}
               title={name}
               color={color}
             />
-            {title === savedTodo && id === '1' && <Text>{t(`${translationBaseKey}.done`)}</Text>}
-          </View >
+            {key === savedTodoKey && <Text>{t(`${translationBaseKey}.done`)}</Text>}
+          </Fragment >
         );
       })
   )
