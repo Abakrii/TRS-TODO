@@ -5,7 +5,7 @@ import { TodoItemProps } from '../../../../core/types';
 import ActionButton from '../../../../core/components/actionButton';
 import { useTranslation } from 'react-i18next';
 import { translationBaseKey } from '../../../../core/utils/constants';
-const { todoItem, titleStyle } = styles;
+const { todoItem, titleStyle, filterActionView } = styles;
 const TodoItem: FC<TodoItemProps> = ({
   item,
   onDelete,
@@ -36,7 +36,7 @@ const TodoItem: FC<TodoItemProps> = ({
       .map((filteredData) => {
         const { id, name, color, onAction } = filteredData;
         return (
-          <View key={id}>
+          <View style={filterActionView} key={id}>
             <ActionButton
               key={id}
               onPress={onAction}
@@ -44,7 +44,7 @@ const TodoItem: FC<TodoItemProps> = ({
               color={color}
             />
             {title === savedTodo && id === '1' && <Text>{t(`${translationBaseKey}.done`)}</Text>}
-          </View>
+          </View >
         );
       })
   )

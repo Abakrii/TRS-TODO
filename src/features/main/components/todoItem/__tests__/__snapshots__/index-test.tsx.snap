@@ -29,7 +29,14 @@ exports[`renders correctly 1`] = `
   >
     text item text
   </TextInput>
-  <View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      }
+    }
+  >
     <View
       style={
         Object {
@@ -84,7 +91,14 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-  <View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      }
+    }
+  >
     <View
       style={
         Object {

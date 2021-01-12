@@ -10,6 +10,7 @@ export interface StylesInterfaces {
     input?: TextStyle;
     actionButtonView?: ViewStyle;
     titleStyle?: TextStyle
+    filterActionView?: ViewStyle
 }
 
 export type HeaderProps = {
