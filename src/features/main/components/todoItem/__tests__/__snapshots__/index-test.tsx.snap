@@ -82,58 +82,8 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      accessibilityRole="button"
-      accessibilityState={Object {}}
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "margin": 8,
-                "textAlign": "center",
-              },
-              Object {
-                "color": "blue",
-              },
-            ]
-          }
-        >
-          codes.common.save
-        </Text>
-      </View>
-    </View>
-  </View>
+  <Text>
+    codes.common.done
+  </Text>
 </View>
 `;

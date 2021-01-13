@@ -10,29 +10,37 @@ const TodoItem: FC<TodoItemProps> = ({
   item,
   onDelete,
   onSave,
-  savedTodoKey,
+  savedTodoKey
 }): JSX.Element => {
   const { t } = useTranslation();
-  const { title = '', key = '' } = item || {};
+  const { title = '', id = '' } = item || {};
+
+
   const buttonItems = [
     {
       id: '1',
       name: t(`${translationBaseKey}.delete`),
       color: 'red',
-      onAction: () => onDelete(key),
+      onAction: () => onDelete(id),
     },
     {
       id: '2',
       name: t(`${translationBaseKey}.save`),
       color: 'blue',
-      onAction: () => onSave(key),
+      onAction: () => onSave(item),
     },
   ];
 
 
+
+
+
+  const findedOb = savedTodoKey.find(o => o.id === id);
+
+
   const filterActions = () => (
     buttonItems
-      .filter((item) => item.id === '1' || key !== savedTodoKey)
+      .filter((buttonItem) => buttonItem.id === '1' || !findedOb)
       .map((filteredActions) => {
         const { id, name, color, onAction } = filteredActions;
         return (
@@ -43,7 +51,7 @@ const TodoItem: FC<TodoItemProps> = ({
               title={name}
               color={color}
             />
-            {key === savedTodoKey && <Text>{t(`${translationBaseKey}.done`)}</Text>}
+            { findedOb && <Text>{t(`${translationBaseKey}.done`)}</Text>}
           </Fragment >
         );
       })

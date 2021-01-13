@@ -1,7 +1,7 @@
 import { GlobalFun } from '../types';
 export const globalDeleteHandler = ({ val, setState }: GlobalFun) => {
     setState((prevState: any[]) => {
-        return prevState.filter((state: any) => state.key != val);
+        return prevState.filter((state: any) => state.id != val);
     });
 };
 
@@ -11,7 +11,7 @@ export const globalChangeHandler = ({ val, setState }: GlobalFun) => {
 
 export const globalAddToDo = ({ val, setState }: GlobalFun) => {
     setState((prevTodos: any) => {
-        return [{ key: Math.random().toString(), title: val, }, ...prevTodos];
+        return [{ id: Math.random().toString(), title: val, }, ...prevTodos];
     });
 };
 

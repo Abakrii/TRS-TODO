@@ -21,10 +21,10 @@ export type ReactChildern = {
 };
 
 export type TodoItemProps = {
-    item?: { title: string; key: string };
+    item?: { id: string, title: string; };
     onDelete: Function;
     onSave: Function;
-    savedTodoKey: string;
+    savedTodoKey: any;
 };
 
 export type GlobalFun = {

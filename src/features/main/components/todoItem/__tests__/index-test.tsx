@@ -4,9 +4,9 @@ import TodoItem from '../';
 
 test('renders correctly', () => {
     const tree = renderer.create(<TodoItem
-        savedTodoKey="saved todo name"
+        savedTodoKey={[{ id: "1", title: "totdo title" }]}
         onSave={() => console.log('on save is working')}
-        item={{ title: "text item text", key: "1" }}
+        item={{ id: "1", title: "text item text", }}
         onDelete={() => console.log('on delete')}
     />).toJSON();
     expect(tree).toMatchSnapshot();

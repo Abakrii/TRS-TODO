@@ -13,29 +13,40 @@ const { mainContainer } = styles;
 const Main: FC = (): JSX.Element => {
     const { t } = useTranslation();
 
-    const [todos, setTodos] = useState(
-        [
-            { key: "1", title: "Drink coffe" },
-            { key: "2", title: "Drink tea" },
-            { key: "3", title: "Drink water" }
-        ]
-    );
+    const [todos, setTodos] = useState([]);
 
-    const [savedTodoKey, setSaveTodo] = useState('');
+    const [savedTodoKey, setSaveTodo] = useState([]);
 
-    const addTodoHandler = (title: string) => {
-        globalAddToDo({ val: title, setState: setTodos })
+
+
+    const addTodoHandler = (id: string) => {
+        globalAddToDo({ val: id, setState: setTodos })
     };
-    const deleteHandler = (key: string) => {
-        globalDeleteHandler({ val: key, setState: setTodos })
-    };
-
-    const saveHandler = (key) => {
-        setSaveTodo(key);
+    const deleteHandler = (id: string) => {
+        globalDeleteHandler({ val: id, setState: setTodos })
     };
 
 
 
+
+    const onSelect = (item: any) => {
+        const { id = "", title = "" } = item;
+        setSaveTodo(prevTodos => {
+            return [{ id, title }, ...prevTodos];
+        });
+    }
+
+
+    const renderItem = ({ item }: any) => {
+        return (
+            <TodoItem
+                item={item}
+                onSave={onSelect}
+                onDelete={deleteHandler}
+                savedTodoKey={savedTodoKey}
+            />
+        )
+    }
 
     return (
         <View style={mainContainer}>
@@ -45,15 +56,9 @@ const Main: FC = (): JSX.Element => {
                 <ListContainer>
                     <FlatList
                         data={todos}
-                        keyExtractor={(item) => item.key}
-                        renderItem={({ item }) => (
-                            <TodoItem
-                                item={item}
-                                onSave={saveHandler}
-                                onDelete={deleteHandler}
-                                savedTodoKey={savedTodoKey}
-                            />
-                        )} />
+                        keyExtractor={(item) => item.id}
+                        renderItem={renderItem}
+                    />
                 </ListContainer>
             </Content>
         </View>
